@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ===== BOX ICONS ===== -->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Portfolio Personal Complete</title>
+    <script>
+        /*==================== SHOW MENU ====================*/
+const showMenu = (toggleId, navId) =>{
+    const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId)
+    
+    // Validate that variables exist
+    if(toggle && nav){
+        toggle.addEventListener('click', ()=>{
+            // We add the show-menu class to the div tag with the nav__menu class
+            nav.classList.toggle('show-menu')
+        })
+    }
+}
+showMenu('nav-toggle','nav-menu')
+
+/*==================== REMOVE MENU MOBILE ====================*/
+const navLink = document.querySelectorAll('.nav__link')
+
+function linkAction(){
+    const navMenu = document.getElementById('nav-menu')
+    // When we click on each nav__link, we remove the show-menu class
+    navMenu.classList.remove('show-menu')
+}
+navLink.forEach(n => n.addEventListener('click', linkAction))
+
+/*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav__menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive)
+
+    </script>
+  </head>
+
+  <body>
+    <!--===== SCROLL TOP =====-->
+
+    <!--===== HEADER =====-->
+    <header class="l-header scroll-header" id="header">
+      <nav class="nav bd-container">
+        <a href="#" class="nav__logo">Welcome To Vishal Blog Page</a>
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#home" class="nav__link active-link">Lifestyle</a>
+            </li>
+            <li class="nav__item">
+              <a href="#about" class="nav__link">Photography</a>
+            </li>
+            <li class="nav__item">
+              <a href="#services" class="nav__link">Music</a>
+            </li>
+            <li class="nav__item">
+              <a href="#portfolio" class="nav__link">Travel</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="featured">
+        <div class="featured__content bd-container bd-grid">
+          <div class="featured__img">
+            <img
+              src="https://cdn.pixabay.com/photo/2021/08/07/21/00/ural-owl-6529375_960_720.jpg"
+              alt=""
+            />
+          </div>
+          <div class="featured__data feautured__data__spaces">
+            <span class="category">Photography</span>
+            <h2 class="post__title">The Perfect Weekend getaway</h2>
+            <p class="post__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum. Sed
+              ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia aconsequuntur magni
+              dolores eos qui ratione voluptatem sequi nesciunt. Neque porro
+              quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+              adipisci velit, sed quia non numquam eius modi tempora incidunt ut
+              labore et dolore magnam aliquam quaerat voluptatem.
+            </p>
+            <span class="category">Leave a comment</span>
+          </div>
+        </div>
+      </section>
+
+      <!--===== Related Post =====-->
+
+      <section class="related__post">
+        <div class="related__post__container bd-container bd-grid">
+          <div class="single__post">
+            <div class="single__post__featured__img">
+              <img
+                src="https://cdn.pixabay.com/photo/2021/08/07/21/00/ural-owl-6529375_960_720.jpg"
+                alt=""
+              />
+            </div>
+            <div class="featured__data">
+              <span class="category">lifestyle</span>
+              <h2 class="post__title">More than just a music festival</h2>
+              <p class="post__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea .
+              </p>
+            </div>
+          </div>
+
+          <div class="single__post">
+            <div class="single__post__featured__img">
+              <img
+                src="https://cdn.pixabay.com/photo/2021/08/07/21/00/ural-owl-6529375_960_720.jpg"
+                alt=""
+              />
+            </div>
+            <div class="featured__data">
+              <span class="category">lifestyle</span>
+              <h2 class="post__title">Life tastes better with coffee</h2>
+              <p class="post__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea .
+              </p>
+            </div>
+          </div>
+
+          <div class="single__post">
+            <div class="single__post__featured__img">
+              <img
+                src="https://cdn.pixabay.com/photo/2021/08/07/21/00/ural-owl-6529375_960_720.jpg"
+                alt=""
+              />
+            </div>
+            <div class="featured__data">
+              <span class="category">Photography</span>
+              <h2 class="post__title">American dream</h2>
+              <p class="post__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea .
+              </p>
+            </div>
+          </div>
+
+          <div class="single__post">
+            <div class="single__post__featured__img">
+              <img
+                src="https://cdn.pixabay.com/photo/2021/08/07/21/00/ural-owl-6529375_960_720.jpg"
+                alt=""
+              />
+            </div>
+            <div class="featured__data">
+              <span class="category">Photography</span>
+              <h2 class="post__title">A day exploring the Alps</h2>
+              <p class="post__text">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea .
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--===== Sign Up =====-->
+      <section class="signup">
+        <div class="signup__container bd-container bd-grid">
+          <h2 class="signup__title post__title">Sign up for our newsletter!</h2>
+
+          <div class="form__inputs">
+            <input
+              type="email"
+              placeholder="Enter a valid email address"
+              class="form__input"
+            />
+            <img src=" " alt="" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--===== Related Post =====-->
+
+    <section class="related__post">
+      <div class="related__post__container bd-container bd-grid">
+        <div class="single__post">
+          <div class="single__post__featured__img">
+            <img
+              src="https://cdn.pixabay.com/photo/2021/08/07/21/00/ural-owl-6529375_960_720.jpg"
+              alt=""
+            />
+          </div>
+          <div class="featured__data">
+            <span class="category">lifestyle</span>
+            <h2 class="post__title">Top 10 song for running</h2>
+            <p class="post__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea .
+            </p>
+          </div>
+        </div>
+
+        <div class="single__post">
+          <div class="single__post__featured__img">
+            <img
+              src="https://cdn.pixabay.com/photo/2021/08/07/21/00/ural-owl-6529375_960_720.jpg"
+              alt=""
+            />
+          </div>
+          <div class="featured__data">
+            <span class="category">lifestyle</span>
+            <h2 class="post__title">Cold winter days</h2>
+            <p class="post__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea .
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="bd-container buttons">
+        <a href="#" class="button">Load more</a>
+      </div>
+    </section>
+
+    <!--===== Footer =====-->
+    <footer>
+      <div class="footer__container bd-container bd-grid">
+        <div>
+          <span>Terms and condition</span>
+          <span>Privacy</span>
+        </div>
+        <div class="social__icons">
+          <span>Follow</span>
+          <a href="#"><i class="bx bxl-facebook"></i></a>
+          <a href="#"><i class="bx bxl-twitter"></i></a>
+          <a href="#"><i class="bx bxl-instagram"></i></a>
+        </div>
+      </div>
+    </footer>
+    <!--===== MAIN JS =====-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
